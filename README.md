@@ -2,12 +2,16 @@
 
 Página institucional disruptiva desenvolvida para o processo seletivo da DevClub. O projeto combina um design moderno em modo escuro com animações fluidas e micro-interações de alto impacto visual para criar uma experiência premium para o usuário.
 
+<<<<<<< HEAD
  Preview do Projeto ⬇️
  
  <img width="959" height="416" alt="Captura de tela 2026-07-18 105720" src="https://github.com/user-attachments/assets/0cc8cf55-6ebb-4e39-8f4c-8531221df1b4" />
 
 
 
+=======
+[Preview do Projeto](img src="./assets/image.png") 
+>>>>>>> 732f17e (Salvando alterações locais)
 
 ## 🎯 O Desafio
 O objetivo principal era desenvolver uma página institucional para a DevClub que não fosse apenas "mais uma página comum", mas sim uma aplicação **disruptiva**, com forte apelo visual, foco em micro-interações e performance.
@@ -36,6 +40,7 @@ A animação principal da página utiliza a API de Canvas 2D do HTML5 e JavaScri
 2.  **Atração Física:** Cada partícula calcula sua distância até o ponto de destino no logo e se move em direção a ele usando física vetorial básica para simular magnetismo.
 3.  **Conexão Dinâmica:** O código calcula a distância entre as partículas em tempo real. Se duas partículas ficam próximas, uma linha verde com opacidade progressiva é traçada entre elas, criando o efeito de teia/nuvem de dados.
 
+<<<<<<< HEAD
 
 ## 📫 Entre em contato:
 
@@ -46,3 +51,5 @@ E-mail: gianlucasgodoy558@gmail.com
 Portfólio: https://github.com/GianGodoy
 
 
+=======
+>>>>>>> 732f17e (Salvando alterações locais)
