@@ -2,7 +2,10 @@
 
 Página institucional disruptiva desenvolvida para o processo seletivo da DevClub. O projeto combina um design moderno em modo escuro com animações fluidas e micro-interações de alto impacto visual para criar uma experiência premium para o usuário.
 
-<video src="assets/DevClub.mp4" controls width="100%" poster="assets/image.png"></video>
+
+https://github.com/user-attachments/assets/bbd34f16-7494-41f1-ad06-2f795b6f583e
+
+
 
 ## 🎯 O Desafio
 O objetivo principal era desenvolver uma página institucional para a DevClub que não fosse apenas "mais uma página comum", mas sim uma aplicação **disruptiva**, com forte apelo visual, foco em micro-interações e performance.
