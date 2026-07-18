@@ -2,7 +2,7 @@
 
 Página institucional disruptiva desenvolvida para o processo seletivo da DevClub. O projeto combina um design moderno em modo escuro com animações fluidas e micro-interações de alto impacto visual para criar uma experiência premium para o usuário.
 
-[Preview do Projeto](https://github.com/GianGodoy/Concurso-DevClub) 
+[Preview do Projeto](img src="./assets/image.png") 
 
 ## 🎯 O Desafio
 O objetivo principal era desenvolver uma página institucional para a DevClub que não fosse apenas "mais uma página comum", mas sim uma aplicação **disruptiva**, com forte apelo visual, foco em micro-interações e performance.
@@ -30,3 +30,4 @@ A animação principal da página utiliza a API de Canvas 2D do HTML5 e JavaScri
 1.  **Mapeamento:** O algoritmo lê uma matriz de coordenadas com pontos específicos que desenham a palavra "DEVCLUB".
 2.  **Atração Física:** Cada partícula calcula sua distância até o ponto de destino no logo e se move em direção a ele usando física vetorial básica para simular magnetismo.
 3.  **Conexão Dinâmica:** O código calcula a distância entre as partículas em tempo real. Se duas partículas ficam próximas, uma linha verde com opacidade progressiva é traçada entre elas, criando o efeito de teia/nuvem de dados.
+
