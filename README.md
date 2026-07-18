@@ -2,7 +2,9 @@
 
 Página institucional disruptiva desenvolvida para o processo seletivo da DevClub. O projeto combina um design moderno em modo escuro com animações fluidas e micro-interações de alto impacto visual para criar uma experiência premium para o usuário.
 
- Preview do Projeto <img width="959" height="416" alt="Captura de tela 2026-07-18 105720" src="https://github.com/user-attachments/assets/0cc8cf55-6ebb-4e39-8f4c-8531221df1b4" />
+ Preview do Projeto ⬇️
+ 
+ <img width="959" height="416" alt="Captura de tela 2026-07-18 105720" src="https://github.com/user-attachments/assets/0cc8cf55-6ebb-4e39-8f4c-8531221df1b4" />
 
 
 
