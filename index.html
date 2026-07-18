@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevClub — Cursos de programação e Inteligência Artificial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+<!-- Partículas de fundo ambiente (mesmo estilo da nuvem do hero) -->
+<canvas id="bgParticles"></canvas>
+
+<!-- ===== PRELOADER / ENTRADA ===== -->
+<div id="preloader">
+  <div class="preloader-inner">
+    <svg class="preloader-logo" viewBox="0 0 64 64" width="64" height="64">
+      <rect x="1" y="1" width="62" height="62" rx="18" class="pl-square"/>
+      <path class="pl-bracket" d="M22 20 L14 32 L22 44" />
+      <path class="pl-bracket" d="M42 20 L50 32 L42 44" />
+    </svg>
+    <div class="preloader-bar"><span></span></div>
+    <p class="preloader-text">Carregando DevClub<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="siteHeader">
+  <nav class="nav container">
+    <a href="#inicio" class="brand">
+      <span class="brand-badge">DC</span>
+      <span class="brand-name">DevClub</span>
+    </a>
+
+    <div class="nav-links nav-links--center">
+      <a href="#inicio">Início</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#trilha">Trilhas</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </div>
+
+    <a href="#planos" class="btn btn-primary btn-sm nav-cta">Começar agora</a>
+
+    <button class="nav-burger" id="navBurger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="#inicio">Início</a>
+    <a href="#cursos">Cursos</a>
+    <a href="#trilha">Trilhas</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato">Contato</a>
+    <a href="#planos" class="btn btn-primary btn-sm">Começar agora</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <canvas id="particleCanvas"></canvas>
+  <div class="hero-vignette"></div>
+
+  <div class="hero-content container">
+    <div class="hero-cloud-space" id="heroCloudSpace" aria-hidden="true"></div>
+
+    <h1 class="hero-title reveal-el" data-reveal="0">
+      Cursos de programação e Inteligência Artificial para todos os níveis.
+      Do zero ao profissional contratado pelas melhores empresas do Brasil.
+    </h1>
+
+    <div class="hero-actions reveal-el" data-reveal="1">
+      <a href="#cursos" class="btn btn-primary">Ver cursos <span class="arrow">→</span></a>
+      <a href="#depoimentos" class="btn btn-ghost"><span class="play-ico">▷</span> Ver depoimentos</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-cue">
+    <span class="chevron"></span>
+  </div>
+</section>
+
+<!-- ===== STATS / SOBRE A DEVCLUB ===== -->
+<section class="section stats-section" id="stats">
+  <div class="container">
+    <p class="eyebrow reveal" data-reveal-group>SOBRE A DEVCLUB</p>
+    <h2 class="section-title reveal" data-reveal-group>Números que <span class="text-accent">provam</span></h2>
+    <p class="section-sub reveal" data-reveal-group>Uma plataforma viva e conectada ao universo dev/IA, com resultados reais que falam por si.</p>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal" data-reveal-group>
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="stat-number" data-count="30" data-suffix="k+">0</div>
+        <div class="stat-label">Alunos formados</div>
+      </div>
+
+      <div class="stat-card reveal" data-reveal-group>
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg>
+        </div>
+        <div class="stat-number" data-count="500" data-suffix="+">0</div>
+        <div class="stat-label">Empresas parceiras</div>
+      </div>
+
+      <div class="stat-card reveal" data-reveal-group>
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="stat-number" data-count="800" data-suffix="h+">0</div>
+        <div class="stat-label">Horas de conteúdo</div>
+      </div>
+
+      <div class="stat-card reveal" data-reveal-group>
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 4h3a1 1 0 0 1 1 1 4 4 0 0 1-4 4"/><path d="M7 4H4a1 1 0 0 0-1 1 4 4 0 0 0 4 4"/></svg>
+        </div>
+        <div class="stat-number" data-count="95" data-suffix="%">0</div>
+        <div class="stat-label">Taxa de empregabilidade</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUEM SOMOS ===== -->
+<section class="section about-section" id="sobre">
+  <div class="container about-grid">
+    <div class="about-text">
+      <p class="eyebrow eyebrow-purple reveal" data-reveal-group>QUEM SOMOS</p>
+      <h2 class="section-title reveal" data-reveal-group>A escola que <span class="text-gradient">transforma vidas</span> através do código</h2>
+      <p class="about-p reveal" data-reveal-group>O DevClub nasceu com uma missão simples: transformar qualquer pessoa — independente de background — em um desenvolvedor completo e empregável. Não acreditamos em educação passiva. Acreditamos em mão na massa, projetos reais e uma comunidade que te impulsiona.</p>
+
+      <ul class="check-list reveal" data-reveal-group>
+        <li><span class="check-ico">✓</span> Metodologia validada com +30k alunos</li>
+        <li><span class="check-ico">✓</span> Suporte de tutores especialistas 24/7</li>
+        <li><span class="check-ico">✓</span> Projetos reais no portfólio desde o dia 1</li>
+        <li><span class="check-ico">✓</span> Rede de empresas que contratam nossos alunos</li>
+      </ul>
+
+      <div class="feature-mini-grid">
+        <div class="feature-mini reveal" data-reveal-group>
+          <div class="feature-mini-ico">&lt;/&gt;</div>
+          <h4>Aprendizado prático</h4>
+          <p>Projetos reais desde o primeiro dia. Nada de teoria sem sentido.</p>
+        </div>
+        <div class="feature-mini reveal" data-reveal-group>
+          <div class="feature-mini-ico">🚀</div>
+          <h4>Do zero ao emprego</h4>
+          <p>Metodologia validada com mais de 30 mil alunos contratados.</p>
+        </div>
+        <div class="feature-mini reveal" data-reveal-group>
+          <div class="feature-mini-ico">♡</div>
+          <h4>Comunidade ativa</h4>
+          <p>Uma rede de devs que se ajudam, crescem juntos e se contratam.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-side">
+      <div class="journey-card reveal" data-reveal-group>
+        <h3>Nossa jornada</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-dot">18</span>
+            <div><strong>2018</strong><p>DevClub nasce com o sonho de democratizar programação no Brasil</p></div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot">20</span>
+            <div><strong>2020</strong><p>Primeiros 5.000 alunos formados durante a pandemia</p></div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot">22</span>
+            <div><strong>2022</strong><p>Lançamento das formações Full Stack e especializações</p></div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot">24</span>
+            <div><strong>2024</strong><p>30.000+ devs formados, parceria com 500+ empresas</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-card reveal" data-reveal-group>
+        <div class="code-card-head">
+          <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+          <span class="code-filename">devclub.js</span>
+        </div>
+        <pre class="code-body"><span class="tok-kw">const</span> <span class="tok-var">devclub</span> = {
+  <span class="tok-prop">missão</span>: <span class="tok-str">"Transformar vidas"</span>,
+  <span class="tok-prop">alunos</span>: <span class="tok-num">30000</span>,
+  <span class="tok-prop">método</span>: <span class="tok-str">"Mão na massa"</span>
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CURSOS & TRILHAS ===== -->
+<section class="section courses-section" id="cursos">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="eyebrow reveal" data-reveal-group>CURSOS &amp; TRILHAS</p>
+      <h2 class="section-title reveal" data-reveal-group>Escolha sua <span class="text-accent">trilha</span></h2>
+    </div>
+
+    <div class="filter-tabs reveal" data-reveal-group>
+      <button class="filter-tab active" data-filter="todos">Todos</button>
+      <button class="filter-tab" data-filter="front-end">Front-end</button>
+      <button class="filter-tab" data-filter="back-end">Back-end</button>
+      <button class="filter-tab" data-filter="mobile">Mobile</button>
+      <button class="filter-tab" data-filter="ia">IA &amp; Dados</button>
+      <button class="filter-tab" data-filter="devops">DevOps</button>
+      <button class="filter-tab" data-filter="seguranca">Segurança</button>
+    </div>
+
+    <div class="courses-grid">
+      <article class="course-card featured reveal" data-reveal-group data-cat="front-end">
+        <span class="badge-popular">Mais popular</span>
+        <div class="course-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        </div>
+        <h3>Full Stack Web</h3>
+        <p class="course-stack">React + Node.js + PostgreSQL</p>
+        <div class="course-tags">
+          <span class="tag tag-green">Iniciante</span>
+          <span class="tag">Front-end</span>
+        </div>
+        <div class="course-meta">
+          <span>⏱ 12 meses</span><span>👥 8.200+</span><span>★ 4.9</span>
+        </div>
+        <div class="course-footer">
+          <div class="course-price">R$ 97<span>/mês</span></div>
+          <a href="#" class="btn btn-primary btn-sm">Ver curso ›</a>
+        </div>
+      </article>
+
+      <article class="course-card reveal" data-reveal-group data-cat="mobile">
+        <div class="course-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        </div>
+        <h3>Mobile Dev</h3>
+        <p class="course-stack">React Native + Expo + Firebase</p>
+        <div class="course-tags">
+          <span class="tag tag-yellow">Intermediário</span>
+          <span class="tag">Mobile</span>
+        </div>
+        <div class="course-meta">
+          <span>⏱ 10 meses</span><span>👥 4.100+</span><span>★ 4.8</span>
+        </div>
+        <div class="course-footer">
+          <div class="course-price">R$ 97<span>/mês</span></div>
+          <a href="#" class="btn btn-outline btn-sm">Ver curso ›</a>
+        </div>
+      </article>
+
+      <article class="course-card reveal" data-reveal-group data-cat="ia">
+        <div class="course-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4v1a3 3 0 0 0-2 2.83V12a3 3 0 0 0 1 2.24V16a4 4 0 0 0 4 4h2a4 4 0 0 0 4-4v-1.76A3 3 0 0 0 18 12v-2.17A3 3 0 0 0 16 7V6a4 4 0 0 0-4-4z"/></svg>
+        </div>
+        <h3>IA &amp; Machine Learning</h3>
+        <p class="course-stack">Python + TensorFlow + Pandas</p>
+        <div class="course-tags">
+          <span class="tag tag-red">Avançado</span>
+          <span class="tag">IA &amp; Dados</span>
+        </div>
+        <div class="course-meta">
+          <span>⏱ 14 meses</span><span>👥 3.800+</span><span>★ 4.9</span>
+        </div>
+        <div class="course-footer">
+          <div class="course-price">R$ 97<span>/mês</span></div>
+          <a href="#" class="btn btn-outline btn-sm">Ver curso ›</a>
+        </div>
+      </article>
+
+      <article class="course-card reveal" data-reveal-group data-cat="back-end devops">
+        <div class="course-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+        </div>
+        <h3>Back-end &amp; DevOps</h3>
+        <p class="course-stack">Node.js + Docker + AWS</p>
+        <div class="course-tags">
+          <span class="tag tag-yellow">Intermediário</span>
+          <span class="tag">Back-end</span>
+        </div>
+        <div class="course-meta">
+          <span>⏱ 10 meses</span><span>👥 5.600+</span><span>★ 4.8</span>
+        </div>
+        <div class="course-footer">
+          <div class="course-price">R$ 97<span>/mês</span></div>
+          <a href="#" class="btn btn-outline btn-sm">Ver curso ›</a>
+        </div>
+      </article>
+
+      <article class="course-card reveal" data-reveal-group data-cat="front-end">
+        <div class="course-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Front-end Avançado</h3>
+        <p class="course-stack">React + TypeScript + Next.js</p>
+        <div class="course-tags">
+          <span class="tag tag-red">Avançado</span>
+          <span class="tag">Front-end</span>
+        </div>
+        <div class="course-meta">
+          <span>⏱ 8 meses</span><span>👥 6.900+</span><span>★ 4.9</span>
+        </div>
+        <div class="course-footer">
+          <div class="course-price">R$ 97<span>/mês</span></div>
+          <a href="#" class="btn btn-outline btn-sm">Ver curso ›</a>
+        </div>
+      </article>
+
+      <article class="course-card reveal" data-reveal-group data-cat="seguranca">
+        <div class="course-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Cyber Security</h3>
+        <p class="course-stack">Pentest + Linux + Networking</p>
+        <div class="course-tags">
+          <span class="tag tag-red">Avançado</span>
+          <span class="tag">Segurança</span>
+        </div>
+        <div class="course-meta">
+          <span>⏱ 9 meses</span><span>👥 2.400+</span><span>★ 4.7</span>
+        </div>
+        <div class="course-footer">
+          <div class="course-price">R$ 97<span>/mês</span></div>
+          <a href="#" class="btn btn-outline btn-sm">Ver curso ›</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- TRILHA DE APRENDIZADO -->
+    <div class="path-card reveal" data-reveal-group id="trilha">
+      <div class="path-head">
+        <p class="eyebrow">TRILHA DE APRENDIZADO</p>
+        <h3>Sua jornada Full Stack</h3>
+        <p class="path-sub">Cada nó conecta ao próximo — siga a trilha e chegue ao mercado</p>
+      </div>
+
+      <div class="path-nodes">
+        <div class="path-node done"><span class="node-ico">✓</span> HTML &amp; CSS</div>
+        <div class="path-node done"><span class="node-ico">✓</span> JavaScript</div>
+        <div class="path-node">React</div>
+        <div class="path-node">Node.js</div>
+        <div class="path-node">Full Stack</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEPOIMENTOS ===== -->
+<section class="section testimonials-section" id="depoimentos">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="eyebrow reveal" data-reveal-group>DEPOIMENTOS</p>
+      <h2 class="section-title reveal" data-reveal-group>Histórias que <span class="text-accent">inspiram</span></h2>
+    </div>
+
+    <div class="testimonial-carousel reveal" data-reveal-group>
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-card active" id="testimonialCard">
+          <div class="testimonial-top">
+            <div class="avatar" id="tCardAvatar">AS</div>
+            <div class="testimonial-who">
+              <strong id="tCardName">Ana Silva</strong>
+              <span id="tCardRole">Front-end Developer @ Nubank</span>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="salary-chip"><span>Salário atual</span><strong id="tCardSalary">R$ 8.200/mês</strong></div>
+          </div>
+          <p class="testimonial-quote" id="tCardQuote">"Entrei no DevClub sabendo o básico de HTML. Em 6 meses migrei de carreira e fui contratada como front-end no Nubank. A metodologia prática fez toda a diferença."</p>
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="carousel-arrows">
+          <button id="carPrev" aria-label="Depoimento anterior">‹</button>
+          <button id="carNext" aria-label="Próximo depoimento">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLANOS ===== -->
+<section class="section pricing-section" id="planos">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="eyebrow reveal" data-reveal-group>PLANOS</p>
+      <h2 class="section-title reveal" data-reveal-group>Invista na sua <span class="text-accent">carreira</span></h2>
+      <p class="section-sub reveal" data-reveal-group>Sem pegadinhas. Cancele quando quiser. Garantia de 7 dias.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal" data-reveal-group>
+        <span class="plan-label">MENSAL</span>
+        <div class="plan-price">R$ 97<span>/mês</span></div>
+        <p class="plan-sub">Comece agora sem compromisso</p>
+        <ul class="plan-list">
+          <li>✓ Acesso a 1 formação</li>
+          <li>✓ Suporte via comunidade</li>
+          <li>✓ Projetos práticos</li>
+          <li>✓ Certificado digital</li>
+        </ul>
+        <a href="#" class="btn btn-outline btn-block">Escolher plano</a>
+      </div>
+
+      <div class="price-card highlighted reveal" data-reveal-group>
+        <span class="save-badge">⚡ Economize 41%</span>
+        <span class="plan-label plan-label-accent">ANUAL</span>
+        <div class="plan-price">R$ 57<span>/mês</span></div>
+        <p class="plan-sub">O mais escolhido pelos alunos</p>
+        <ul class="plan-list">
+          <li>✓ Acesso a todas as formações</li>
+          <li>✓ Suporte prioritário com tutores</li>
+          <li>✓ Projetos + mentorias ao vivo</li>
+          <li>✓ Certificados digitais</li>
+          <li>✓ Acesso à comunidade premium</li>
+          <li>✓ Indicação para empresas parceiras</li>
+        </ul>
+        <a href="#" class="btn btn-primary btn-block">Começar agora</a>
+      </div>
+
+      <div class="price-card reveal" data-reveal-group>
+        <span class="plan-label">VITALÍCIO</span>
+        <div class="plan-price">R$ 1.997<span>único</span></div>
+        <p class="plan-sub">Acesso para sempre, sem mensalidade</p>
+        <ul class="plan-list">
+          <li>✓ Tudo do plano Anual</li>
+          <li>✓ Acesso vitalício a novos cursos</li>
+          <li>✓ Mentorias 1:1 com tutores</li>
+          <li>✓ Grupo VIP de networking</li>
+          <li>✓ Sessões de revisão de currículo</li>
+        </ul>
+        <a href="#" class="btn btn-outline btn-block">Escolher plano</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMPRESAS ===== -->
+<section class="section companies-section">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="eyebrow reveal" data-reveal-group>EMPRESAS</p>
+      <h2 class="section-title reveal" data-reveal-group>Onde nossos alunos <span class="text-accent">trabalham</span></h2>
+    </div>
+
+    <div class="companies-marquee reveal" data-reveal-group>
+      <div class="marquee-track">
+        <span class="company-pill">Loft</span><span class="company-pill">Rappi</span><span class="company-pill">Nubank</span>
+        <span class="company-pill">iFood</span><span class="company-pill">Mercado Livre</span><span class="company-pill">Itaú</span>
+        <span class="company-pill">Vivo</span><span class="company-pill">Bradesco</span><span class="company-pill">Stone</span>
+        <span class="company-pill">PagSeguro</span><span class="company-pill">Hotmart</span>
+        <!-- duplicado para loop -->
+        <span class="company-pill">Loft</span><span class="company-pill">Rappi</span><span class="company-pill">Nubank</span>
+        <span class="company-pill">iFood</span><span class="company-pill">Mercado Livre</span><span class="company-pill">Itaú</span>
+        <span class="company-pill">Vivo</span><span class="company-pill">Bradesco</span><span class="company-pill">Stone</span>
+        <span class="company-pill">PagSeguro</span><span class="company-pill">Hotmart</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TUTORES ===== -->
+<section class="section tutors-section">
+  <div class="container">
+    <div class="section-head-center">
+      <p class="eyebrow reveal" data-reveal-group>TUTORES</p>
+      <h2 class="section-title reveal" data-reveal-group>Aprenda com quem <span class="text-accent">já chegou lá</span></h2>
+    </div>
+
+    <div class="tutors-grid">
+      <div class="tutor-card reveal" data-reveal-group>
+        <div class="avatar avatar-lg">RM</div>
+        <h4>Rodolfo Mori</h4>
+        <span class="tutor-role">CEO &amp; Lead Instructor</span>
+        <span class="tutor-exp">15 anos de experiência</span>
+        <span class="tag tag-green">● Full Stack &amp; Arquitetura</span>
+        <p>Engenheiro de software com passagem por Amazon e Google. Fundou o DevClub com a missão de democratizar a educação em tecnologia no Brasil.</p>
+        <div class="tutor-companies"><span class="tag">Google</span><span class="tag">Amazon</span></div>
+        <div class="tutor-social">
+          <a href="#" aria-label="GitHub">GH</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Twitter">X</a>
+        </div>
+      </div>
+
+      <div class="tutor-card reveal" data-reveal-group>
+        <div class="avatar avatar-lg">DL</div>
+        <h4>Débora Lins</h4>
+        <span class="tutor-role">Lead Front-end Instructor</span>
+        <span class="tutor-exp">10 anos de experiência</span>
+        <span class="tag tag-green">● React &amp; UI/UX</span>
+        <p>Especialista em React e design de interfaces. Criou o currículo de front-end do DevClub e já formou mais de 5.000 alunos.</p>
+        <div class="tutor-companies"><span class="tag">Netflix</span><span class="tag">Nubank</span></div>
+        <div class="tutor-social">
+          <a href="#" aria-label="GitHub">GH</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Twitter">X</a>
+        </div>
+      </div>
+
+      <div class="tutor-card reveal" data-reveal-group>
+        <div class="avatar avatar-lg">CM</div>
+        <h4>Carlos Menezes</h4>
+        <span class="tutor-role">Back-end &amp; DevOps</span>
+        <span class="tutor-exp">12 anos de experiência</span>
+        <span class="tag tag-green">● Node.js &amp; AWS</span>
+        <p>Arquiteto de sistemas com experiência em empresas de alto crescimento. Especialista em Node.js, microsserviços e AWS.</p>
+        <div class="tutor-companies"><span class="tag">iFood</span><span class="tag">Mercado Pago</span></div>
+        <div class="tutor-social">
+          <a href="#" aria-label="GitHub">GH</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Twitter">X</a>
+        </div>
+      </div>
+
+      <div class="tutor-card reveal" data-reveal-group>
+        <div class="avatar avatar-lg">AB</div>
+        <h4>Ana Beatriz</h4>
+        <span class="tutor-role">Mobile Dev</span>
+        <span class="tutor-exp">8 anos de experiência</span>
+        <span class="tag tag-green">● iOS &amp; Android</span>
+        <p>Desenvolvedora mobile apaixonada. Publicou mais de 20 apps nas stores e agora ensina a próxima geração de devs mobile.</p>
+        <div class="tutor-companies"><span class="tag">99</span><span class="tag">PicPay</span></div>
+        <div class="tutor-social">
+          <a href="#" aria-label="GitHub">GH</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Twitter">X</a>
+        </div>
+      </div>
+
+      <div class="tutor-card reveal" data-reveal-group>
+        <div class="avatar avatar-lg">FS</div>
+        <h4>Felipe Santos</h4>
+        <span class="tutor-role">AI &amp; Data Science</span>
+        <span class="tutor-exp">9 anos de experiência</span>
+        <span class="tag tag-green">● Python &amp; ML</span>
+        <p>Cientista de dados e engenheiro de ML com uma abordagem única: aprender fazendo projetos do mundo real.</p>
+        <div class="tutor-companies"><span class="tag">Itaú</span><span class="tag">B2W</span></div>
+        <div class="tutor-social">
+          <a href="#" aria-label="GitHub">GH</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Twitter">X</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="section final-cta-section" id="contato">
+  <div class="container">
+    <span class="vacancy-badge reveal" data-reveal-group><span class="pulse-dot"></span> Vagas abertas nas empresas parceiras</span>
+    <h2 class="final-cta-title reveal" data-reveal-group>Pronto para <span class="text-accent">mudar sua vida?</span></h2>
+    <a href="#" class="btn btn-primary btn-lg reveal" data-reveal-group>Começar agora — Grátis <span class="arrow">→</span></a>
+
+    <p class="newsletter-label reveal" data-reveal-group>Receba novidades e conteúdos gratuitos</p>
+    <form class="newsletter-form reveal" data-reveal-group onsubmit="return false;">
+      <input type="email" placeholder="seu@email.com" required>
+      <button type="submit" aria-label="Enviar">➤</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="#inicio" class="brand">
+      <span class="brand-badge">DC</span>
+    </a>
+    <p class="footer-copy">© 2026 DevClub. Todos os direitos reservados.</p>
+    <div class="footer-social">
+      <a href="#" aria-label="GitHub">GH</a>
+      <a href="#" aria-label="YouTube">YT</a>
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="LinkedIn">in</a>
+    </div>
+    <div class="footer-links">
+      <a href="#">Privacidade</a><a href="#">Termos</a><a href="#">Contato</a>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Voltar ao topo">↑</button>
+
+<script src="script.js?v=3"></script>
+</body>
+</html>
